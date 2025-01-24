@@ -93,6 +93,99 @@
 #ch1 c3
 
 
-def deduplicate_lists(lst1, lst2, reverse=False):
-    combined = set(lst1 + lst2)
-    return sorted(combined,reverse=reverse)
+# def deduplicate_lists(lst1, lst2, reverse=False):
+#     combined = set(lst1 + lst2)
+#     return sorted(combined,reverse=reverse)
+
+
+# def file_to_prompt(file, to_string):
+
+#     return "```\n" + to_string(file) + "\n" + "```"
+
+#ch2 L2
+
+# def file_type_getter(file_types):
+#     extension_to_type = {}
+#     for file_type, extensions in file_types:
+#         for ext in extensions:
+#             extension_to_type[ext] = file_type
+#     return lambda ext: extension_to_type.get(ext, "Unknown")
+
+
+#ch2  L5
+
+# def change_bullet_style(document):
+#     lines = document.split("\n")
+#     convert_lines = map(convert_line, lines) # convert eacch lines
+#     return "\n".join(convert_lines) # join the lines
+
+# def convert_line(line):
+#     old_bullet = "-"
+#     new_bullet = "*"
+#     if len(line) > 0 and line[0] == old_bullet:
+#         return new_bullet + line[1:]
+#     return line
+
+# ch 2 L 6
+
+# def is_even(x):
+#     return x % 2 == 0
+
+# numbers = [1, 2, 3, 4, 5, 6]
+# evens = list(filter(is_even, numbers))
+# print(evens)
+
+
+# def remove_invalid_lines(document):
+#     lines = document.split("\n")
+#     valid_lines = filter(is_valid_line,lines)
+#     return  "\n"+"\n".join(valid_lines) + "\n"
+
+# def is_valid_line(line):
+#     return len(line) > 0 and line[0] == "*"
+
+
+# ch 2 L7 
+
+# import functools
+
+
+# def join(doc_so_far, sentence):
+#     return f"{doc_so_far}. {sentence}"
+
+
+# def join_first_sentences(sentences, n):
+#     if n == 0:
+#         return ""
+#     selected = sentences[:n]
+#     if not selected:
+#         return ""
+#     combined = functools.reduce(join, selected)
+#     return combined + "."
+
+
+# ch2 c1
+
+
+# def get_common_formats(formats1, formats2):
+#     return set(formats1).intersection(formats2)
+
+#c2
+
+# valid_formats = [
+#     "docx",
+#     "pdf",
+#     "txt",
+#     "pptx",
+#     "ppt",
+#     "md",
+# ]
+
+
+
+# def pair_document_with_format(doc_names, doc_formats):
+#     a =  list(zip(doc_names, doc_formats))
+#     filtered = filter(lambda x: x[1] in valid_formats, a)
+#     return list(filtered)
+
+#ch3 

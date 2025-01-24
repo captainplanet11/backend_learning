@@ -121,6 +121,74 @@ If the output of get_player_position is incorrect, it's hard to know what's goin
 
 Once you've run it, found the issue, and solved it, you can remove the print statements.
 
-## Toggle case
+### Functions As Values
+In Python, functions are just values, like strings, integers, or objects. For example, we can assign an existing function to a variable:
+
+`def add(x, y):
+    return x + y
+addition = add
+print(addition(2, 5))`
+
+
+## Anonymous Functions 
+
+Anonymous functions have no name, and in python they are called lambda functions after lambda calculus. 
+Here's a lambda function that takes x as a argument and returns the result of x + 1
+
+`lambda x:x+1`
+
+Notice that the expression x + 1 is returned automatically, no need for a return statement. And because
+functions are just values, we can assign the function to a variable named add_one
+
+`add_one  = lambda x: x+1
+print(add_one(2))`
+
+
+lambda functions might look scary. but thetye arte still functions. Because they simply return the 
+result of an expression, they are often used for small, simple evalutaions. Here's example that uses
+a lambda to get a value from a dictionary.
+
+`get_age = lambda name:{
+            "lane": 29,
+    "hunter": 69,
+    "allan": 17
+
+}.get(name,"not found")
+
+
+print(get_age("lane"))`
+
+
+### MAP 
+
+"Map", "Filter", and "reduce" are three commonly used higher-order functional programming.
+
+In python, the built-in map function takes a function and an iterable(in this case a list) as
+inputs. It returns an iterator that applies the function to every item, yielding the result.
+
+
+![alt text](image.png)
+
+
+`def square(x):
+    return x*x
+    
+nums = [1,2,3,4,5]
+squared_nums = map(square,nums)
+print(list(squared_nums))`
+
+
+
+## Filter
+
+The built-in filter function takes a function and an iterable (in this case a list) and returns a new iterable that only contains elements from the original iterable where the result of the function on that item returned True.
+
+## reduce 
+
+The built-in functools.reduce() function takes a function and a list of values, and applies the function to each value in the list, accumulating a single result as it goes.
+
+
+
+
 
 
