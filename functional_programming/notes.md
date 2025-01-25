@@ -187,8 +187,115 @@ The built-in filter function takes a function and an iterable (in this case a li
 
 The built-in functools.reduce() function takes a function and a list of values, and applies the function to each value in the list, accumulating a single result as it goes.
 
+### pure functions 
+
+If you take nothing else away from this course, please take this: Pure functions are fantastic. They have two properties:
+
+* They always return the same value given the same arguments.
+* Running them cause no side effects
+
+In short: pure functions don't do anything with anything that exists outside of their scope.
+
+### Reference vs. Value
+When you pass a value into a function as an argument, one of two things can happen:
+
+It's passed by reference: The function has access to the original value and can change it
+It's passed by value: The function only has access to a copy. Changes to the copy within the function don't affect the original
+There is a bit more nuance, but this explanation mostly works.
+
+
+These types are passed by reference:
+
+* Lists
+* Dictionaries
+* Sets
+
+These types are passed by value:
+
+* Integers
+* Floats
+* Strings
+* Booleans
+* Tuples
+
+# example  of pass by reference 
+
+`def modify_list(inner_lst):
+    inner_lst.append(4)
+    
+outer_lst = [1, 2, 3]
+modify_list(outer_lst)`
+
+
+`def attempt_to_modify(inner_num):
+    inner_num += 1
+outer_num = 1
+attempt_to_modify(outer_num)`
 
 
 
+### Recursion 
+
+Recursion is a famously tricky concept to grasp, but it's honestly quite simple - don't let it intimidate you! A recursive function is just a function that calls itself!
+
+
+If you thought loops were the only way to iterate over a list, you were wrong! Recursion is fundamental to functional programming because it's how we iterate over lists while avoiding stateful loops. Take a look at this function that sums the numbers in a list:
+
+`def sum_nums(nums):
+    if len(nums) == 0:
+        return 0
+    return nums[0] + sum_nums(nums[1:])
+
+print(sum_nums([1, 2, 3, 4, 5]))`
+
+### Function transformation 
+
+"Function transformation" is just a more concise way to describe a specific type of higher order function. It's when a function takes a function (or functions) as input and returns a new function. Let's look at an example:
+
+
+![alt text](image-1.png)
+
+
+### currying 
+
+
+Function currying is a specific kind of function transformation where we translate a single function that accepts multiple arguments into multiple functions that each accept a single argument.
+
+This is a "normal" 3-argument function:
+
+`box_volume(3, 4, 5)`
+
+This is a "curried" series of functions that does the same thing:
+
+`box_volume(3)(4)(5)`
+
+Here's another example that includes the implementations:
+
+`def sum(a, b):
+  return a + b
+
+print(sum(1, 2))`
+
+And the same thing curried:
+
+`def sum(a):
+  def inner_sum(b):
+    return a + b
+  return inner_sum
+
+print(sum(1)(2))`
+
+
+
+### Decorators
+
+
+Python decorators are just syntactic sugar for higher-order functions.
+
+`def vowel_counter(func_to_decorate):
+    vowel_count = 0 
+    def wrapper(doc):
+        nonlocal vowel_count
+        `
 
 

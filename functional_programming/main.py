@@ -189,3 +189,95 @@
 #     return list(filtered)
 
 #ch3 
+
+
+# def convert_file_format(filename, target_format):
+#     # Define validation data within the function's scope
+#     valid_extensions = ["docx", "pdf", "txt", "pptx", "ppt", "md"]
+#     valid_conversions = {
+#         "docx": ["pdf", "txt", "md"],
+#         "pdf": ["docx", "txt", "md"],
+#         "txt": ["docx", "pdf", "md"],
+#         "pptx": ["ppt", "pdf"],
+#         "ppt": ["pptx", "pdf"],
+#         "md": ["docx", "pdf", "txt"],
+#     }
+    
+#     current_format = filename.split(".")[-1]
+    
+#     if (current_format in valid_extensions and 
+#         target_format in valid_conversions.get(current_format, [])):
+#         return filename.replace(current_format, target_format)
+#     return None
+
+
+# def get_logger(formatter):
+#     def logger(first,second):
+#         formatted_message = formatter(first, second)
+#         print(formatted_message) 
+#     return logger   
+
+
+
+
+# def test(first, errors, formatter):
+#     print("Logs:")
+#     logger = get_logger(formatter)
+#     for err in errors:
+#         logger(first, err)
+#     print("====================================")
+
+
+# def colon_delimit(first, second):
+#     return f"{first}: {second}"
+
+
+# def dash_delimit(first, second):
+#     return f"{first} - {second}"
+
+
+# def main():
+#     db_errors = [
+#         "out of memory",
+#         "cpu is pegged",
+#         "networking issue",
+#         "invalid syntax",
+#     ]
+#     test("Doc2Doc FATAL", db_errors, colon_delimit)
+
+#     mail_errors = [
+#         "email too large",
+#         "non alphanumeric symbols found",
+#     ]
+#     test("Doc2Doc WARNING", mail_errors, dash_delimit)
+
+
+# main()
+
+
+# def converted_font_size(font_size, doc_type):
+#     if doc_type == "txt":
+#         return font_size
+#     if doc_type == "md":
+#         return font_size * 2
+#     if doc_type == "docx":
+#         return font_size * 3
+#     raise ValueError("Invalid doc type")
+
+
+# def vowel_counter(func_to_decorate):
+#     vowel_counter = 0
+#     def wrapper(doc):
+#         nonlocal vowel_counter
+#         vowels = "aeiou"
+#         for char in doc:
+#             if char in vowels:
+#                 vowel_counter += 1
+#         print(f"vowels: {vowel_counter}")
+#         return func_to_decorate(doc)
+#     return wrapper
+
+
+# @vowel_counter
+# def process(doc):
+#     print(f"document: {doc}")
